@@ -150,7 +150,7 @@ import Bulma.Classes as B
 import Bulma.Modifiers as Modifiers exposing (..)
 
 import Html exposing ( Html, Attribute, div, p, text )
-import Html.Attributes as Attr exposing ( class )
+import Html.Attributes as Attr exposing ( class, href )
 
 
 -- CONTAINER -------------------------------------------------------------------
@@ -287,7 +287,7 @@ levelItemText = node "p" [ B.levelItem ]
 
 {-| -}
 levelItemLink : List (Attribute msg) -> List (Html msg) -> LevelItem msg
-levelItemLink = node "a" [ B.levelItem ]
+levelItemLink = node "a" [ B.levelItem, href "" ]
 
 {-| -}
 easyLevelItemWithHeading : List (Attribute msg) -> String -> String -> LevelItem msg

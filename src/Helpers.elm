@@ -68,5 +68,5 @@ ls x = [ x ]
 node : String -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Html msg
 node tag attrs_ attrs
   = Html.node tag
-    <| attrs ++ attrs_
+    <| attrs_ ++ attrs
 

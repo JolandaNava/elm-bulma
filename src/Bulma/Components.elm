@@ -317,7 +317,7 @@ import Bulma.Elements exposing ( Image, easyDelete, Button, ButtonModifiers, but
 
 import Html exposing ( Html, Attribute, text, div, p, a, ul, li, span, input )
 import Html.Events exposing ( onClick )
-import Html.Attributes exposing ( attribute, class, type_ )
+import Html.Attributes exposing ( attribute, class, type_, href )
 
 
 -- BREADCRUMB ------------------------------------------------------------------
@@ -490,7 +490,7 @@ cardIcon = node "p" [ B.cardHeaderIcon ]
 
 {-| -}
 cardIconLink : List (Attribute msg) -> List (Icon msg) -> CardHeaderItem msg
-cardIconLink = node "a" [ B.cardHeaderIcon ]
+cardIconLink = node "a" [ B.cardHeaderIcon, href "" ]
 
 {-| -}
 easyCardIconLink : List (Attribute msg) -> msg -> Icon msg -> CardHeaderItem msg
@@ -538,7 +538,7 @@ cardFooterItem = node "p" [ B.cardFooterItem ]
 
 {-| -}
 cardFooterItemLink : List (Attribute msg) -> List (Html msg) -> CardFooterItem msg
-cardFooterItemLink = node "a" [ B.cardFooterItem ]
+cardFooterItemLink = node "a" [ B.cardFooterItem, href "" ]
 
 
 -- DROPDOWN --------------------------------------------------------------------
@@ -659,7 +659,7 @@ dropdownMenu attrs attrs_ items
 {-| A synonym for `a.dropdown-item.is-active`.
 -}
 dropdownItemLink : IsActive -> List (Attribute msg) -> List (Html msg) -> DropdownItem msg
-dropdownItemLink isActive = node "a" [ B.dropdownItem, if isActive then B.isActive else B.none ]
+dropdownItemLink isActive = node "a" [ B.dropdownItem, if isActive then B.isActive else B.none, href "" ]
 
 {-| A synonym for `div.dropdown-item.is-active`.
 -}
@@ -1073,7 +1073,7 @@ When its first argument is `True`, it transforms into a `navbarCross`.
 
 -}
 navbarBurger : IsActive -> List (Attribute msg) -> List (Html msg) -> NavbarBurger msg
-navbarBurger isActive = node "a" [ B.navbarBurger, if isActive then B.isActive else B.none ]
+navbarBurger isActive = node "a" [ B.navbarBurger, if isActive then B.isActive else B.none, href "" ]
 
 {-| A simple "X" character; the active version of `navbarBurger`.
 -}
@@ -1111,7 +1111,7 @@ You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navb
 When the first argument is `True`, the link will be highlighted.
 -}
 navbarItemLink : IsActive -> List (Attribute msg) -> List (Html msg) -> NavbarItem msg
-navbarItemLink isActive = node "a" [ B.navbarItem, if isActive then B.isActive else B.none ]
+navbarItemLink isActive = node "a" [ B.navbarItem, if isActive then B.isActive else B.none, href "" ]
 
 {-| This is a dropdown item that expects `navbarLink` and `navbarDropdown` tags.
 When the first argument is `True` the menu contents will be visible.
@@ -1153,7 +1153,7 @@ hoverableNavbarItemDropdown dir attrs link dropdowns
 {-| This element represents `a.navbar-link`. It is only useful as a child of `navbarDropdown`.
 -}
 navbarLink : List (Attribute msg) -> List (Html msg) -> NavbarLink msg
-navbarLink = node "a" [ B.navbarLink ]
+navbarLink = node "a" [ B.navbarLink, href "" ]
 
 {-| -}
 type alias IsBoxed = Bool
@@ -1230,7 +1230,7 @@ type alias PaginationPartition msg = Html msg
 
 {-| -}
 paginationPrev : List (Attribute msg) -> List (Html msg) -> PaginationPartition msg
-paginationPrev = node "a" [ B.paginationPrevious ]
+paginationPrev = node "a" [ B.paginationPrevious, href "" ]
 
 {-| -}
 easyPaginationPrev : List (Attribute msg) -> msg -> String -> PaginationPartition msg
@@ -1239,7 +1239,7 @@ easyPaginationPrev attrs msg
 
 {-| -}
 paginationNext : List (Attribute msg) -> List (Html msg) -> PaginationPartition msg
-paginationNext = node "a" [ B.paginationNext ]
+paginationNext = node "a" [ B.paginationNext, href "" ]
 
 {-| -}
 easyPaginationNext : List (Attribute msg) -> msg -> String -> PaginationPartition msg
@@ -1270,6 +1270,7 @@ paginationLink current
     , case current of
         True  -> B.isCurrent
         False -> B.none
+    , href ""
     ]
 
 {-| -}
@@ -1348,6 +1349,7 @@ panelLink active
     , case active of
         True  -> B.isActive
         False -> B.none
+    , href ""
     ]
 
 {-| 
@@ -1433,6 +1435,7 @@ panelTab active
     [ case active of
         True  -> B.isActive
         False -> B.none
+    , href ""
     ]
 
 
